@@ -53,3 +53,28 @@ function checkPalindrome(str) {
         checkPalindrome(result);
     }
 }
+
+//Form Submission
+function submitForm() {
+    //Get values of the form and set variables to them
+    var firstName = document.getElementsByName("name1")[0].value;
+    var lastName = document.getElementsByName("name2")[0].value;
+    var zipcode = document.getElementsByName("zip")[0].value;
+
+    //add variables together to form full name
+    var fullName = firstName + " " + lastName;
+
+    //Check if name is too long
+    if (fullName.length > 20) {
+        alert("That name is too long.");
+    }
+    //Check if Zip is valid
+    if (zipcode.length > 5 || zipcode.length < 5) {
+        alert("That is not a valid Zip Code.");
+    }
+
+    //If the form is valid, show the secret message
+    if (fullName.length <= 20 && zipcode.length == 5) {
+        alert("Congratulations! You found the secret mesasage! Which is: Don't share your personal information with places you don't trust.");
+    }
+}
