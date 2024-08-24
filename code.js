@@ -78,3 +78,43 @@ function submitForm() {
         alert("Congratulations! You found the secret mesasage! Which is: Don't share your personal information with places you don't trust.");
     }
 }
+
+//Set Interval variable
+var moveInterval;
+
+//Setup the Event
+document.addEventListener("imageMove", function(event) {
+    moveImage();
+});
+
+//Setup function to use Event
+function triggerMove() {
+    var event = new Event("imageMove");
+    document.dispatchEvent(event);
+}
+
+//Function to randomly move the image around
+function moveImage() {
+    var image = document.getElementById("meme");
+
+    var randX = Math.floor(Math.random() * (window.innerWidth - image.width));
+    var randY = Math.floor(Math.random() * (window.innerHeight - image.height));
+
+    image.style.left = randX + "px";
+    image.style.top = randY + "px";
+}
+
+//Toggle the movement to start
+function startMove() {
+    // Check if the interval is already running
+    if (!moveInterval) {
+        moveInterval = setInterval(triggerMove, 1000); // Move every 1 second
+    }
+}
+
+//Toggle the movement to stop
+function stopMove() {
+    // Stop the movement by clearing the interval
+    clearInterval(moveInterval);
+    moveInterval = null; // Reset the interval ID
+}

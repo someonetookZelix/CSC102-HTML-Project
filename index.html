@@ -16,11 +16,16 @@
         <h1 id="heading">Welcome to my meme page!</h1>
         <!-- Button to show the meme -->
         <button id="memeButton" onclick="updateText();">Click for a meme</button>
+    </br>
+        <!-- Start moving the meme-->
+        <button id="movePic" onclick="startMove();">Click me to start moving the meme!</button>
+        <!-- Stop moving the meme-->
+        <button id="stopMoving" onclick="stopMove();">Click me to stop moving the meme!</button>
     </header>
     <!-- Paragraph -->
     <p>
         <!-- Meme image -->
-        <img id="meme" src="none">
+        <img id="meme" src="" style="position: absolute;">
     </p>
     
 </body>
